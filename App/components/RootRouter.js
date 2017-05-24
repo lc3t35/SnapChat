@@ -6,22 +6,26 @@ import React, {
 
 import {
   View,
-  Navigator,
   Text,
   StatusBar,
 } from 'react-native';
 import {Router, Route, Scene, Animations, TabBar} from 'react-native-router-flux';
 
+import {
+  Navigator,
+} from 'react-native-deprecated-custom-components';
 
-import Splash from './Splash';
-import Dashboard from './Dashboard';
-import Snaps from './Snaps';
-import Discover from './Discover';
-import AddMe from './AddMe';
-import Chats from './Chats';
-import Stories from './Stories';
 
-import { connect } from 'react-redux'; 
+
+import Splash from './splash.js';
+import Dashboard from './dashboard.js';
+import Snaps from './snaps.js';
+import Discover from './discover.js';
+import AddMe from './AddMe.js';
+import Chats from './chats.js';
+import Stories from './stories.js';
+
+import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actions from '../actions/actions';
 const RouterWithRedux = connect()(Router);
@@ -30,7 +34,7 @@ const RouterWithRedux = connect()(Router);
 class RootRouter extends Component {
 	constructor(props) {
     super(props);
-    	
+
   }
 
  renderScene(route, navigator) {
@@ -41,7 +45,7 @@ class RootRouter extends Component {
         <Chats
          // data = {route.data}
           navigator={navigator}
-         {...route.passProps} 
+         {...route.passProps}
           {...state}
            />
       );
@@ -63,21 +67,21 @@ class RootRouter extends Component {
     if (routeId === 'Discover') {
       return (
         <Discover
-  
+
           navigator={navigator} />
       );
     }
     if (routeId === 'Stories') {
       return (
         <Stories
-  
+
           navigator={navigator} />
       );
     }
     if (routeId === 'Snaps') {
       return (
         <Snaps
-  
+
           navigator={navigator} />
       );
     }
@@ -88,13 +92,13 @@ class RootRouter extends Component {
           navigator={navigator} />
       );
     }
-    
+
     }
-    
+
   render() {
     return (
       <View style={{flex:1}}>
-      
+
         <Navigator
         style={{flex: 1}}
         initialRoute={{id: 'Splash', name: 'Splash'}}
@@ -102,8 +106,8 @@ class RootRouter extends Component {
       /></View>
     );
   }
-  
-  
+
+
 
 
 
